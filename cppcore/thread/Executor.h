@@ -17,8 +17,6 @@
 
 namespace cppcore
 {
-namespace thread
-{
   class Executor
   {
   public:
@@ -150,7 +148,6 @@ namespace thread
       }
     }
   };
-}
 }
 
 #endif /* EXECUTOR_H_ */

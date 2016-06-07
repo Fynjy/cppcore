@@ -43,8 +43,9 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="thread|cppcore|memory" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="thread|memory" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cppcore"/>
+						<entry excluding="string|thread|memory" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cppcore"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cppcore/memory"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cppcore/string"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cppcore/thread"/>
 					</sourceEntries>
 				</configuration>
@@ -98,8 +99,9 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="thread|cppcore|memory" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="thread|memory" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cppcore"/>
+						<entry excluding="string|thread|memory" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cppcore"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cppcore/memory"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cppcore/string"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cppcore/thread"/>
 					</sourceEntries>
 				</configuration>

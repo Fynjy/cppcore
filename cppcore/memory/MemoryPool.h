@@ -12,8 +12,6 @@
 
 namespace cppcore
 {
-namespace memory
-{
   class MemoryPool
   {
   public:
@@ -156,7 +154,6 @@ namespace memory
     std::size_t offset_;
     DebugInfo debug_info_;
   };
-}
 }
 
 #endif /* MEMORYPOOL_H_ */

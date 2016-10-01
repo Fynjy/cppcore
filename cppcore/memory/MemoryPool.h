@@ -5,10 +5,10 @@
  *      Author: Anton Kochnev
  */
 
-#ifndef MEMORYPOOL_H_
-#define MEMORYPOOL_H_
+#ifndef CPPCORE_MEMORYPOOL_H_
+#define CPPCORE_MEMORYPOOL_H_
 
-#include <cstdint>
+#include <cstddef>
 
 namespace cppcore
 {
@@ -29,28 +29,6 @@ namespace cppcore
 
   private:
     typedef void* Pointer;
-
-    class Page
-    {
-    public:
-      Pointer ptr;
-
-    public:
-      Page(std::size_t page_size)
-      {
-        ptr = ::operator new(page_size + sizeof(Page*));
-      }
-
-      ~Page()
-      {
-        ::operator delete(ptr);
-      }
-
-      Page*& prev()
-      {
-        return reinterpret_cast<Page*&>(ptr);
-      }
-    };
 
   public:
     MemoryPool(const MemoryPool&) = delete;
@@ -99,10 +77,10 @@ namespace cppcore
       {
         if (n <= page_size_)
         {
-          Pointer page = new_page(n);
+          Pointer page = new_page(page_size_);
           prev(page) = curr_page_;
           curr_page_ = page;
-          offset_ = 0;
+          offset_ = sizeof(Pointer*);
         }
         else
         {
@@ -118,7 +96,7 @@ namespace cppcore
             prev(page) = nullptr;
           }
 
-          return ptr(page, 0);
+          return ptr(page, sizeof(Pointer*));
         }
       }
 
@@ -133,19 +111,19 @@ namespace cppcore
     }
 
   private:
-    static Pointer& prev(Pointer& page)
+    static Pointer& prev(Pointer page)
     {
-      return reinterpret_cast<Pointer&>(page);
+      return *(reinterpret_cast<Pointer*>(page));
     }
 
     static Pointer ptr(const Pointer page, std::size_t offset)
     {
-      return (static_cast<char*>(page) + sizeof(Pointer) + offset);
+      return (static_cast<char*>(page) + offset);
     }
 
     static Pointer new_page(std::size_t page_size)
     {
-      return ::operator new(page_size + sizeof(Pointer));
+      return ::operator new(page_size + sizeof(Pointer*));
     }
 
   private:
@@ -156,4 +134,4 @@ namespace cppcore
   };
 }
 
-#endif /* MEMORYPOOL_H_ */
+#endif /* CPPCORE_MEMORYPOOL_H_ */

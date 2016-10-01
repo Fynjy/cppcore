@@ -5,8 +5,8 @@
  *      Author: Anton Kochnev
  */
 
-#ifndef EXECUTOR_H_
-#define EXECUTOR_H_
+#ifndef CPPCORE_EXECUTOR_H_
+#define CPPCORE_EXECUTOR_H_
 
 #include <atomic>
 #include <future>
@@ -150,4 +150,4 @@ namespace cppcore
   };
 }
 
-#endif /* EXECUTOR_H_ */
+#endif /* CPPCORE_EXECUTOR_H_ */

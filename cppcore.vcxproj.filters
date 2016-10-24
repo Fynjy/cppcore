@@ -15,6 +15,12 @@
     <Filter Include="Header Files\thread">
       <UniqueIdentifier>{bb9d6448-e61d-415c-8017-e51a85276df2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\io">
+      <UniqueIdentifier>{68082c77-176e-4012-9a1e-ec510c5fa650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\io">
+      <UniqueIdentifier>{7b0fde9b-b2fc-43df-b6df-7a9356945c27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cppcore\memory\MemoryPool.h">
@@ -26,5 +32,13 @@
     <ClInclude Include="cppcore\memory\MemoryPoolAllocator.h">
       <Filter>Header Files\memory</Filter>
     </ClInclude>
+    <ClInclude Include="cppcore\io\Serialization.h">
+      <Filter>Header Files\io</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cppcore\io\Serialization.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

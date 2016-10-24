@@ -1,10 +1,3 @@
-/*
- * MemoryPool.h
- *
- *  Created on: 2016-05-07
- *      Author: Anton Kochnev
- */
-
 #ifndef CPPCORE_MEMORYPOOL_H_
 #define CPPCORE_MEMORYPOOL_H_
 

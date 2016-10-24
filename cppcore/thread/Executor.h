@@ -1,10 +1,3 @@
-/*
- * Executor.h
- *
- *  Created on: 2016-05-08
- *      Author: Anton Kochnev
- */
-
 #ifndef CPPCORE_EXECUTOR_H_
 #define CPPCORE_EXECUTOR_H_
 

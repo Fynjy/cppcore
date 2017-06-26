@@ -9,26 +9,26 @@
 namespace cppcore
 {
   template<typename T>
-  void write(std::ostream& os, const T& v)
+  inline void write(std::ostream& os, const T& v)
   {
     os.write(reinterpret_cast<const char*>(&v), sizeof(T));
   }
 
   template<typename T>
-  void read(std::istream& is, T& v)
+  inline void read(std::istream& is, T& v)
   {
     is.read(reinterpret_cast<char*>(&v), sizeof(T));
   }
 
   template<typename T>
-  void write_vector_pod(std::ostream& os, const std::vector<T>& v)
+  inline void write_vector_pod(std::ostream& os, const std::vector<T>& v)
   {
     write(os, v.size());
     os.write(reinterpret_cast<const char*>(&v[0]), sizeof(T) * v.size());
   }
 
   template<typename T>
-  void read_vector_pod(std::istream& is, std::vector<T>& v)
+  inline void read_vector_pod(std::istream& is, std::vector<T>& v)
   {
     std::size_t sz = 0;
     read(is, sz);
@@ -37,10 +37,20 @@ namespace cppcore
   }
 
   template<>
-  void write(std::ostream& os, const std::string& v);
+  inline void write(std::ostream& os, const std::string& v)
+  {
+    write(os, v.length());
+    os.write(v.c_str(), v.length());
+  }
 
   template<>
-  void read(std::istream& is, std::string& v);
+  inline void read(std::istream& is, std::string& v)
+  {
+    std::size_t sz = 0;
+    read(is, sz);
+    v.resize(sz);
+    is.read(&*v.begin(), sz);
+  }
 }
 
 #endif /* MLCORE_IO_SERIALIZATION_H_ */
